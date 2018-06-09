@@ -24,12 +24,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Make our public folder static
 app.use(express.static("public"));
 
-var expresshbars = require('express-handlebars');
-app.engine('handlebars', expresshbars({
-    defaultLayout: 'main'
-    
-}));
-app.set('view engine', 'handlebars');
+var exphbs = require("express-handlebars");
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 // Connect to the Mongo DB
 // mongoose.connect("mongodb://localhost/newscraper");
