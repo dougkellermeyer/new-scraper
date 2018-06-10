@@ -41,7 +41,7 @@ mongoose.connect(MONGODB_URI);
 // Routes
 
 app.get("/", function (req, res) {
-    res.redirect("articles");
+    res.render("main")
 })
 
 // A GET route for scraping site
@@ -84,7 +84,7 @@ app.get("/articles", function (req, res) {
             console.log(error);
         }
         else {
-            res.json(data);
+            res.render("index", { articles: data });
         }
     });
 });
